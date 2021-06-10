@@ -9,16 +9,12 @@ class PagesController extends Controller
 {
     public function index(){
         $title = "Welcome To My Blog App";
-        return view('pages.index', [
-            'title' => $title
-        ]);
+        return view('pages.index', compact('title'));
     }
 
     public function about(){
         $title = 'About us';
-        return view('pages.about', [
-            'title' => $title
-        ]);
+        return view('pages.about', compact('title'));
     }
 
     public function service(){
@@ -27,10 +23,6 @@ class PagesController extends Controller
             'services' => ['WebDesign', 'Progammer', 'FullStacker', 'Graphic Design']
         );
         // dd($data);
-        return view('pages.services', [
-            'title' => $data['title'],
-            'services' => $data['services']
-
-        ]);
+        return view('pages.services', $data);
     }
 }
